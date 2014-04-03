@@ -1,18 +1,16 @@
-# is-root [![Build Status](https://travis-ci.org/sindresorhus/is-root.png?branch=master)](http://travis-ci.org/sindresorhus/is-root)
+# is-root [![Build Status](https://travis-ci.org/sindresorhus/is-root.svg?branch=master)](https://travis-ci.org/sindresorhus/is-root)
 
 > Check if the process is running as root user. Eg. started with `sudo`.
 
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/is-root)
-
-```
-npm install --save is-root
+```bash
+$ npm install --save is-root
 ```
 
 
-## Example
+## Usage
 
 ```
 $ sudo node index.js
@@ -29,4 +27,4 @@ isRoot();
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
