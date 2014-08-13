@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var isRoot = require('./index');
+var isRoot = require('./');
 
 it('should return true if root', function () {
 	process.getuid = function () {
