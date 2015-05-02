@@ -1,19 +1,88 @@
 'use strict';
 var assert = require('assert');
-var isRoot = require('./');
+var proxyquire = require('proxyquire');
+var os = require('os');
 
-it('should return true if root', function () {
-	process.getuid = function () {
-		return 0;
-	};
+var isAdminUser = true;
 
-	assert(isRoot());
+var nodeWindowsStub = {
+	isAdminUser: function (callback) {
+		callback(isAdminUser)
+	}
+};
+
+var isRoot = proxyquire('./', {
+	'node-windows': nodeWindowsStub
 });
 
-it('should return false if not root', function () {
-	process.getuid = function () {
-		return 1000;
-	};
+describe('given platform is not win32', function () {
 
-	assert(!isRoot());
+	beforeEach(function () {
+		os.platform = function() {
+			return 'darwin';
+		};
+	});
+
+	it('should return true if uid is 0', function (done) {
+		process.getuid = function () {
+			return 0;
+		};
+
+		isRoot(function (result) {
+			assert(result);
+			done();
+		});
+	});
+
+	it('should return false if uid is not 0', function (done) {
+		process.getuid = function () {
+			return 1000;
+		};
+
+		isRoot(function (result) {
+			assert(!result);
+			done();
+		});
+	});
+
+});
+
+describe('given platform is win32', function () {
+
+	beforeEach(function () {
+		os.platform = function() {
+			return 'win32';
+		};
+	});
+
+	describe('given isAdminUser() yields true', function () {
+
+		beforeEach(function () {
+			isAdminUser = true;
+		});
+
+		it('should return true', function (done) {
+			isRoot(function (result) {
+				assert(result);
+				done();
+			});
+		});
+
+	});
+
+	describe('given isAdminUser() yields false', function () {
+
+		beforeEach(function () {
+			isAdminUser = false;
+		});
+
+		it('should return false', function (done) {
+			isRoot(function (result) {
+				assert(!result);
+				done();
+			});
+		});
+
+	});
+
 });

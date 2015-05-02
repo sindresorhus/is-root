@@ -27,7 +27,11 @@
     "process",
     "posix"
   ],
+  "optionalDependencies": {
+    "node-windows": "^0.1.7"
+  },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "proxyquire": "^1.4.0"
   }
 }

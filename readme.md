@@ -1,6 +1,6 @@
 # is-root [![Build Status](https://travis-ci.org/sindresorhus/is-root.svg?branch=master)](https://travis-ci.org/sindresorhus/is-root)
 
-> Check if the process is running as root user, eg. started with `sudo`.
+> Check if the process is running as root user, eg. started with `sudo`, or as the Administrator user in the case of Windows.
 
 
 ## Install
@@ -20,8 +20,9 @@ $ sudo node index.js
 // index.js
 var isRoot = require('is-root');
 
-isRoot();
-//=> true
+isRoot(function (result) {
+	// result == true
+});
 ```
 
 
