@@ -1,4 +1,12 @@
 'use strict';
-module.exports = function () {
-	return process.getuid && process.getuid() === 0;
+
+var os = require('os');
+
+module.exports = function (callback) {
+	if (os.platform() === 'win32') {
+		var wincmd = require('node-windows');
+		wincmd.isAdminUser(callback);
+	} else {
+		callback(process.getuid && process.getuid() === 0);
+	}
 };
