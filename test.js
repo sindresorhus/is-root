@@ -1,19 +1,12 @@
-'use strict';
-var assert = require('assert');
-var isRoot = require('./');
+import test from 'ava';
+import m from '.';
 
-it('should return true if root', function () {
-	process.getuid = function () {
-		return 0;
-	};
-
-	assert(isRoot());
+test('returns true if root', t => {
+	process.getuid = () => 0;
+	t.true(m());
 });
 
-it('should return false if not root', function () {
-	process.getuid = function () {
-		return 1000;
-	};
-
-	assert(!isRoot());
+test('returns false if not root', t => {
+	process.getuid = () => 1000;
+	t.false(m());
 });
