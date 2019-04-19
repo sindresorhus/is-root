@@ -1,12 +1,12 @@
 import test from 'ava';
-import m from '.';
+import isRoot from '.';
 
 test('returns true if root', t => {
 	process.getuid = () => 0;
-	t.true(m());
+	t.true(isRoot());
 });
 
 test('returns false if not root', t => {
 	process.getuid = () => 1000;
-	t.false(m());
+	t.false(isRoot());
 });
