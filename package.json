@@ -4,10 +4,11 @@
 	"description": "Check if the process is running as root user, for example, one started with `sudo`",
 	"license": "MIT",
 	"repository": "sindresorhus/is-root",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"engines": {
 		"node": ">=6"
