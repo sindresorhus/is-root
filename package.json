@@ -1,6 +1,6 @@
 {
 	"name": "is-root",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"description": "Check if the process is running as root user, for example, one started with `sudo`",
 	"license": "MIT",
 	"repository": "sindresorhus/is-root",
