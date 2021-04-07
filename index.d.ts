@@ -4,7 +4,7 @@ Check if the process is running as root user, for example, one started with `sud
 @example
 ```
 // index.js
-import isRoot = require('is-root');
+import isRoot from 'is-root';
 
 console.log(isRoot());
 
@@ -12,6 +12,4 @@ console.log(isRoot());
 // true
 ```
 */
-declare function isRoot(): boolean;
-
-export = isRoot;
+export default function isRoot(): boolean;

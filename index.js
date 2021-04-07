@@ -1,3 +1,3 @@
-'use strict';
-
-module.exports = () => process.getuid && process.getuid() === 0;
+export default function isRoot() {
+	return process.getuid && process.getuid() === 0;
+}

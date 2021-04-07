@@ -1,5 +1,5 @@
 import test from 'ava';
-import isRoot from '.';
+import isRoot from './index.js';
 
 test('returns true if root', t => {
 	process.getuid = () => 0;

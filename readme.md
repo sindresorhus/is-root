@@ -16,7 +16,7 @@ $ sudo node index.js
 
 ```js
 // index.js
-const isRoot = require('is-root');
+import isRoot from 'is-root';
 
 isRoot();
 //=> true
